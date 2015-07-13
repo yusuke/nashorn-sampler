@@ -25,7 +25,6 @@ public class BindJavaMethod {
         ScriptEngineManager manager = new ScriptEngineManager();
         // works also with "js" / "javascript"
         ScriptEngine engine = manager.getEngineByName("nashorn");
-        // prints "Hello Nashorn"
         engine.put("toBeBound", new BindJavaMethod());
         engine.eval("var hello = Function.prototype.bind.call(toBeBound.hello, toBeBound);");
         // prints "Hello Nashorn"

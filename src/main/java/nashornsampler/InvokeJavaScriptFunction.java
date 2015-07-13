@@ -20,14 +20,9 @@ public class InvokeJavaScriptFunction {
     public static void main(String... args) throws ScriptException, NoSuchMethodException {
         ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName("nashorn");
-        CompiledScript compiledScript = ((Compilable) engine).compile("function hello(message){print(message);}");
-        compiledScript.eval();
+        engine.eval("function hello(message){print(message);}");
         Invocable invocable = (Invocable) engine;
         // prints "Hello Nashorn"
         invocable.invokeFunction("hello", "Hello Nashorn");
-    }
-
-    public void hello() {
-        System.out.println("Hello Nashorn");
     }
 }
